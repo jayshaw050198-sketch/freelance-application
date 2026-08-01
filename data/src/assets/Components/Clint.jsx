@@ -13,8 +13,7 @@ const Clint = () => {
   const [Email, setEmail] = useState("");
   const [post, setPost] = useState([]);
   const [Company , setCompany] = useState('')
-``
-  // const [image , setImage] = useState('')
+
 
   const addPost = async () => {
     try {
