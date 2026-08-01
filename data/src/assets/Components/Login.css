@@ -1,0 +1,146 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Deep Cyberpunk Background */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0c10;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ambient Background Glows */
+.login-container::before,
+.login-container::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+}
+.login-container::before {
+  top: 15%;
+  left: 20%;
+  background: #00f2fe; /* Cyan */
+}
+.login-container::after {
+  bottom: 15%;
+  right: 20%;
+  background: #4facfe; /* Deep Blue */
+}
+
+/* The Glassmorphic/Glowing Card */
+.login-box {
+  position: relative;
+  width: 400px;
+  padding: 40px;
+  background: rgba(15, 22, 36, 0.75);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(0, 242, 254, 0.1);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.login-box h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Input Fields Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #334155;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+/* Floating Labels */
+.input-group label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Move label up on focus/valid input */
+.input-group input:focus ~ label,
+.input-group input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: #00f2fe;
+  font-size: 12px;
+  text-shadow: 0 0 5px rgba(0, 242, 254, 0.4);
+}
+
+/* Neon animated line under inputs */
+.input-group .input-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  transition: 0.4s ease;
+}
+
+.input-group input:focus ~ .input-line,
+.input-group input:valid ~ .input-line {
+  width: 100%;
+  box-shadow: 0 0 10px #00f2fe;
+}
+
+/* High-Glow Submit Button */
+.glow-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+  border: none;
+  border-radius: 8px;
+  color: #0a0c10;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+.glow-btn:hover {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.8),
+              0 0 40px rgba(79, 172, 254, 0.6);
+  transform: translateY(-2px);
+}
+
+.glow-btn:active {
+  transform: translateY(1px);
+}
