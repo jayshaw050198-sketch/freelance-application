@@ -22,10 +22,10 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
+  host: `${process.env.db_host}`,
+  user: `${process.env.db_user}`,
   password: `${process.env.sqlPassword}`,
-  database: "employee",
+  database: `${process.env.db_name}`,
 });
 
 app.post("/signup", (req, res) => {
