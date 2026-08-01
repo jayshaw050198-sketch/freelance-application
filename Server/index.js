@@ -4,8 +4,10 @@ const mysql = require("mysql2");
 const jwt = require("jsonwebtoken");
 const cookie = require("cookie-parser");
 const cookieParser = require("cookie-parser");
-const secret =
-  "hfurvsdfksldfsfvbfvlshefvblwervbeifhcbslkefhclsehfclekfhcblwejcblsffdh";
+const dotenv = require('dotenv')
+
+dotenv.config();
+
 
 const app = express();
 
@@ -22,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "J123@.145/(0).",
+  password: `${process.env.sqlPassword}`,
   database: "employee",
 });
 
@@ -74,7 +76,7 @@ app.post("/admin/users/login", async (req, res) => {
             Email: Email,
           },
 
-          secret,
+          `${process.env.secret}`,
           {
             expiresIn: "3s",
           },
@@ -199,6 +201,9 @@ app.get('/Clint/Data',(req, res)=>{
         });
 })
 
-app.listen(3000, () => {
-  console.log("Server Started ....");
+
+
+
+app.listen(`${process.env.PORT}`, () => {
+  console.log(`Hello ${process.env.PORT}`)
 });
