@@ -205,5 +205,5 @@ app.get('/Clint/Data',(req, res)=>{
 
 
 app.listen(`${process.env.PORT}`, () => {
-  console.log(`Hello ${process.env.PORT}`)
+
 });
